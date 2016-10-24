@@ -1,0 +1,16 @@
+<div class="container custom-bg">
+  <!--<h1> Login</h1>-->
+  <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
+    <div class="col-xs-6 col-sm-4">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" id="email" required="true" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" required="true" ngModel>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+    </div>
+  </form>
+</div>
