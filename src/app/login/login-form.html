@@ -2,6 +2,7 @@
   <!--<h1> Login</h1>-->
   <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
     <div class="col-xs-6 col-sm-4">
+      <div class="alert alert-danger {{shownClass}}"><strong> Invalid credentials !</strong></div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" name="email" id="email" required="true" ngModel>

@@ -10,9 +10,8 @@ import {Headers, RequestOptions} from "@angular/http";
   providers: [NgForm, LoginService]
 })
 export class LoginComponent implements OnInit {
-
+  shownClass: string;
   loginUser(form: NgForm){
-    console.log(form.value);
     this.loginVerify(form.value);
   }
   constructor(private _loginService: LoginService) { }
@@ -22,11 +21,17 @@ loginVerify(details){
   let options = new RequestOptions({headers: headers});
   this._loginService.Validator('users/login',details, options)
     .subscribe(
-      data => data,
+      data => this.setAlertMessage(data),
       error => "invalid login"
     )
 }
+  setAlertMessage(data){
+  if(!data.status){
+    this.shownClass ='';
+  }
+}
   ngOnInit() {
+  this.shownClass = 'hidden';
   }
 
 }
